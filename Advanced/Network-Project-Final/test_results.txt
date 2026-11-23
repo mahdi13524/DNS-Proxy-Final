@@ -1,0 +1,34 @@
+Phase 1 acceptance tests T1-T13
+Actual test execution against local UDP simulator
+
+T1 | input='ads.example.com' | Domain : ads.example.com | Source : AD_BLOCK | Status : OK | IP : 0.0.0.0 | TTL : 60 | PASS
+T2 | input='sub.ads.example.com' | Domain : sub.ads.example.com | Source : AD_BLOCK | Status : OK | IP : 0.0.0.0 | TTL : 60 | PASS
+T3 | input='ADS.Example.COM.' | Domain : ads.example.com | Source : AD_BLOCK | Status : OK | IP : 0.0.0.0 | TTL : 60 | PASS
+T4 | input='notads.example.com' | Domain : notads.example.com | Source : UPSTREAM | Status : OK | IP : 198.51.100.7 | TTL : 5 | PASS
+T5 | input='service.example.org' | Domain : service.example.org | Source : SANCTION | Status : OK | IP : 192.0.2.10 | TTL : 60 | PASS
+T6 | input='both.example.com' | Domain : both.example.com | Source : AD_BLOCK | Status : OK | IP : 0.0.0.0 | TTL : 60 | PASS
+T7 | input='normal.example.net' | Domain : normal.example.net | Source : UPSTREAM | Status : OK | IP : 198.51.100.7 | TTL : 5 | PASS
+T8 | input='normal.example.net' | Domain : normal.example.net | Source : CACHE | Status : OK | IP : 198.51.100.7 | TTL : 4 | PASS
+T9 | input='normal.example.net' | Domain : normal.example.net | Source : UPSTREAM | Status : OK | IP : 198.51.100.7 | TTL : 5 | PASS
+T10a | input='missing.example.net' | Domain : missing.example.net | Source : UPSTREAM | Status : NOT_FOUND | IP : - | TTL : - | PASS
+T10b | input='missing.example.net' | Domain : missing.example.net | Source : UPSTREAM | Status : NOT_FOUND | IP : - | TTL : - | PASS
+T11 | input='other.example.net' | Domain : other.example.net | Source : UPSTREAM | Status : SERVER_ERROR | IP : - | TTL : - | PASS
+T11-followup | input='ads.example.com' | Domain : ads.example.com | Source : AD_BLOCK | Status : OK | IP : 0.0.0.0 | TTL : 60 | PASS
+T12a | input='' | Domain : (empty) | Source : NONE | Status : INVALID_INPUT | IP : - | TTL : - | PASS
+T12b | input='bad domain.com' | Domain : bad domain.com | Source : NONE | Status : INVALID_INPUT | IP : - | TTL : - | PASS
+T13a | input='ads.example.com' | Domain : ads.example.com | Source : AD_BLOCK | Status : OK | IP : 10.0.0.1 | TTL : 60 | PASS
+T13b | input='normal.example.net' | Domain : normal.example.net | Source : UPSTREAM | Status : OK | IP : 198.51.100.7 | TTL : 5 | PASS
+T13c | input='normal.example.net' | Domain : normal.example.net | Source : UPSTREAM | Status : OK | IP : 198.51.100.7 | TTL : 5 | PASS
+
+SCENARIOS PASSED: 13/13
+
+Actual console transcript:
+DNS Proxy ready.
+Enter domain (or exit): Domain : ads.example.com
+Source : AD_BLOCK
+Status : OK
+IP : 10.0.0.1
+TTL : 60
+
+Enter domain (or exit): Bye.
+

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "network-dns-control-center"
+version = "1.0.0"
+description = "Modular local DNS proxy and modern monitoring dashboard"
+requires-python = ">=3.10"
+dependencies = ["dnspython>=2.4,<3"]
+[project.scripts]
+dns-control = "dns_control.server:main"
+[tool.setuptools.packages.find]
+include = ["dns_control*"]

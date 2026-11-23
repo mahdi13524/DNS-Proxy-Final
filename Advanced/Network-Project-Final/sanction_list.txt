@@ -1,0 +1,4 @@
+# Sanction domains
+service.example.org
+both.example.com
+restricted-example.net
